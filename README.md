@@ -26,8 +26,6 @@ The purpose of this week's content at Moringa was to introduce us to the world o
 Angular is essentially a framework that allows developers to manipulate CSS, HTML & jS smoothly and efficiently.
 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
 ## The layout of the web-app
 
 My web-app, called __Quote-Bender__ was developed using Angular.
@@ -36,7 +34,8 @@ It contains three components:
 2. *Quote details* -
 3. *Quote components* -
 
-__Quote components__ Contains the main data (parent). It holds the main visual structure of the website in it's HTML & CSS but also holds most functions, such as:
+### Quote components
+Contains the main data (parent). It holds the main visual structure of the website in it's HTML & CSS but also holds most functions, such as:
 
 __addNewQuote__ pushes a value of an instance of the object _quote_ into the array __quotes__
 
@@ -49,24 +48,42 @@ __upVote__ loops through the index [i] in upVotes and adds one to the list.
 `upVote(i){
   this.quotes[i].upVotes += 1;
 }`
-__downVote__ Works like upVote..
+__downVote__ works like upVote..
 
 `downVote(i){
   this.quotes[i].downVotes += 1;
 }`
 
-__returnVote__
+__returnVote__ does a simple subtraction to return the difference between up & down vote.
 
 `returnVote(i){
   return this.quotes[i].upVotes - this.quotes[i].downVotes;
-}
+}`
+__deleteQuote__ first alerts you, on confirmation it runs a splice (remove) of quotes index 1...
 
-deleteQuote(i){
+`deleteQuote(i){
     if (confirm("Are you sure you want to delete this quote? ")) {
         this.quotes.splice(i, 1);
     }
-}
-getHighest(){
+}`
+__getHighest__ is designed to __highlight__ the quote with most likes.
+It works as follows:
+- We assign values to previous
+- We assign values to last
+
+__Both are 0__ because they are in init stage.
+We then create __a loop__ that will go through each instance of a Quote.
+
+_counter_ will compare it's value with the value of the amount of Quotes and for as long as there are more quotes it will __add one/jump one further__.
+
+Now we assign _last_ to the value of the __last instance__ we encountered of upVotes.
+
+__If__ the value of _last_ (the last value of the upvotes) is greater that _pre_ (the value of the previous votes|initialized at 0) _pre_ takes on the value of _last_.
+
+__Finally we return the value of pre__
+As _last_ now has the value of the __highest number of upVotes__ it will only change again if a higher number appears.
+
+`getHighest(){
   this.pre = 0
   this.last = 0
 
@@ -76,6 +93,27 @@ getHighest(){
   }
   return  this.pre
 }`
+
+
+### QUOTE DETAILS
+Contains the stored details of the __form__.
+It's inputs are `@Input () quote:Quote;`
+
+This is the most basic __component__ in the app.
+
+The main outputs are three _interpolated_ object descriptions:
+`  <p>
+    Written by: {{quote.author}}
+  </p>
+  <p>
+    Posted by: {{quote.publisher}}
+  </p>
+  <p>
+    Posted on: {{quote.initdate}}
+  </p>`
+
+### QUOTE FormsModule
+The form captures all the data from the user.
 
 ## Running unit tests
 
