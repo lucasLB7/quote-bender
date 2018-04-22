@@ -1,10 +1,20 @@
-# Quotes
+# Brief..
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+This project was made by Lucas Lambert for Moringa School. Completion & submission dated at 22/04/2018 at 00:00 midnight.
 
-## Development server
+This project was developed in Angular 5 as part of the IP for CORE.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## SUMMARY
+
+__These are the contents of the README:__
+
+1. Introduction to angular
+2. The layout of the web-app
+3. The problems
+4. The solutions
+5. This I did not manage
+6. Sources & credits
 
 ## Code scaffolding
 
