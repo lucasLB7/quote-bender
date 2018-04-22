@@ -16,9 +16,11 @@ export class QuoteFormComponent implements OnInit {
 
   makeQuote(){
     this.myQuote= new Quote(this.quoteString , this.quoteAuthor , this.quotePublisher)
+
     this.quoteString=''
     this.quoteAuthor=''
     this.quotePublisher=''
+
     this.addQuote.emit(this.myQuote)
 
   }

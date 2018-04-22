@@ -6,3 +6,6 @@
 .alignCenter {
   text-align: center;
 }
+.noFlow {
+  overflow: auto;
+}

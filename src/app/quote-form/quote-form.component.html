@@ -3,46 +3,47 @@
 
     <div class="col-md-6 alignCenter">
       <form (ngSubmit)='makeQuote()' #goalForm='ngForm'>
-        <div class="form-group">
 
+
+        <div class="form-group">
           <label for="name">Quote</label>
-          <input type="text" class="form-control" id="name" [(ngModel)]="quoteString" name="quote" #name="ngModel" required>
-
-
-
+          <input type="text" required class="form-control" id="name" [(ngModel)]="quoteString" name="quote" #name="ngModel">
           <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-            <p> Enter a prefered quote.. </p>
+            <p> Write a quote.. </p>
           </div>
-
         </div>
-        <div class="form-group">
 
+
+        <div class="form-group">
           <label for="author">Author</label>
-          <input type="text" required class="form-control" id="author" [(ngModel)]="quoteAuthor" name="autor" required>
-
+          <input type="text" required class="form-control" id="author" [(ngModel)]="quoteAuthor" name="autor">
           <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-            <p> Enter the name of the author </p>
+            <p> Who is the Author? </p>
           </div>
-
         </div>
-        <div class="form-group">
 
+
+
+        <div class="form-group">
           <label for="submitted">Submitted by</label>
           <input type="text" required class="form-control" id="submitted" [(ngModel)]="quotePublisher" name="publisher" required>
-
-
           <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-            <p> Enter your name.. </p>
+            <p> What's your name? </p>
           </div>
-
         </div>
+
+
+
         <button type="submit" class="btn btn-success btn-lg">Submit Quote!</button>
+
+
+
       </form>
     </div>
 
     <div class="col-md-6">
       <h4>Preview your quote: </h4>
-      <p>{{quoteString}}</p>
+      <p class="noFlow">{{quoteString}}</p>
     </div>
 
   </div>
