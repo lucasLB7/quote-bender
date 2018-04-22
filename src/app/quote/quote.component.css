@@ -1,0 +1,81 @@
+/* font-family: 'Homemade Apple', cursive;
+font-family: 'Nothing You Could Do', cursive;
+font-family: 'Rock Salt', cursive;
+font-family: 'Zeyada', cursive; */
+
+.bodyClass {
+  background: #469FEC;
+}
+
+.mainTemplate {
+  background: #c7d6f4;
+}
+.inputStyle {
+  font-size: 40px;
+  color: #fff;
+  text-align: left;
+  height: auto;
+    flex-direction: row-reverse;
+}
+
+
+
+.mainHeader {
+  background-image:url(../../assets/top.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  height: 300px;
+  padding-top: 7%;
+  text-align: center;
+}
+
+.mainHeader h1 {
+  font-family: 'Zeyada', cursive;
+  color: #fff;
+  font-size: 75px;
+}
+.mainHeader h3 {
+  font-family: 'Rock Salt', cursive;
+  color: #fff;
+  font-size: 20px;
+}
+
+.mainContent {
+  background-image:url(../../assets/floral.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  height: auto;
+  padding-top: 7%;
+  text-align: center;
+}
+.mainContent-that-follow {
+  background-image:url(../../assets/womman.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  height: 800px;
+  padding-top: 7%;
+  text-align: center;
+}
+.lightBackGround{
+  background-color: rgba(0,0,0,0.75);
+
+}
+
+.justWhitePlease {
+  color: #fff;
+}
+
+
+.myQuotes {
+  color: #fff;
+  font-size: 45px;
+  font-family: 'Nothing You Could Do', cursive;
+}
+.likes{
+  color: white;
+}
+
+
+/* .votes {
+  background-image: url(.../);
+} */

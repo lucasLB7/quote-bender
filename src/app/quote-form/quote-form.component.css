@@ -1,0 +1,8 @@
+.boxHold{
+  background-color: rgba(0,0,0,0.75);
+  margin: 0 auto;
+  align-items: center;
+}
+.alignCenter {
+  text-align: center;
+}

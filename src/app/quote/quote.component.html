@@ -1,0 +1,49 @@
+<div class="mainTemplate">
+
+
+  <div class="mainHeader">
+    <h1 class="text-center">QUOTE-BENDER</h1>
+    <h3>Time is language...</h3>
+  </div>
+  <hr>
+
+  <div class="toggleInstructions"></div>
+
+  <div class=" mainContent">
+    <div class="container">
+      <div class="row">
+
+
+        <div class="col-md-6 inputStyle">
+
+          <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
+
+        </div>
+
+        <div class="col-md-6 lightBackGround">
+          <h1 class="justWhitePlease">View & Rate quotes:  </h1>
+          <div class="container">
+            <div class="well" *ngFor="let quote of quotes;let i = index">
+              <p appQuotesHighlight *ngIf="getHighest()===quote.upVotes && quote.upVotes>0">{{quote.quote}}</p>
+              <p class="myQuotes" *ngIf="getHighest()!==quote.upVotes || quote.upVotes===0">{{quote.quote}}</p>
+              <app-quote-details [quote]='quote'></app-quote-details>
+
+
+              <div class="container" class="likes">
+                <button class="btn btn-info" id="upvote" (click)="upVote(i)">Like Quote</button> {{quote.upVotes}}
+                <button class="btn btn-warning" id="downvote" (click)="downVote(i)">Dislike Quote</button> {{quote.downVotes}}
+              </div>
+              <button class="btn btn-danger" id="delete" (click)="deleteQuote(i)">Delete Quote</button>
+              <div class="justWhitePlease">{{returnVote(i)}}</div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mainContent-that-follow">
+  </div>
+
+</div>
