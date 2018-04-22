@@ -1,3 +1,13 @@
+#AVANT-GUARDE
+-----------------------------------------------------------------------------
+                              __INSTALLATION__
+-----------------------------------------------------------------------------
+To preview this app follow this link to the live & deployed website:
+ https://lucaslb7.github.io/quote-bender/
+
+ Otherwise to clone, copy this link to your command terminal:
+ https://github.com/lucasLB7/quote-bender.git
+
 # Brief..
 
 This project was made by Lucas Lambert for Moringa School. Completion & submission dated at 22/04/2018 at 00:00 midnight.
@@ -119,7 +129,7 @@ It's inputs are `@Input () quote:Quote;`
 This is the most basic __component__ in the app.
 
 The main outputs are three _interpolated_ object descriptions:
-`  <p>
+`<p>
     Written by: {{quote.author}}
   </p>
   <p>
@@ -157,3 +167,19 @@ __Next__, we create the structure of the object __Quote__ which contains `quoteS
   this.addQuote.emit(this.myQuote)
 
 }`
+
+We create empty values for quoteString, quote and quotePublisher with intent to fill from inputs from __quote-form__.
+
+
+
+[...] TO BE UPDATE [...]
+
+
+## credits
+
+This app was made possible by the Moringa community and resources as well as:
+
+__git-hub__
+__Angular website__
+__youtube__
+ 
