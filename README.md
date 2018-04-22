@@ -15,7 +15,7 @@ __These are the contents of the README:__
 4. The solutions
 5. This I did not manage
 6. Sources & credits
-
+----------------------------------------------------------------------------
 ## Introduction to angular
 
 
@@ -25,7 +25,7 @@ The purpose of this week's content at Moringa was to introduce us to the world o
 
 Angular is essentially a framework that allows developers to manipulate CSS, HTML & jS smoothly and efficiently.
 
-
+-----------------------------------------------------------------------------
 ## The layout of the web-app
 
 My web-app, called __Quote-Bender__ was developed using Angular.
@@ -33,39 +33,54 @@ It contains three components:
 1. *Quote form* -
 2. *Quote details* -
 3. *Quote components* -
-
+-----------------------------------------------------------------------------
 ### Quote components
 Contains the main data (parent). It holds the main visual structure of the website in it's HTML & CSS but also holds most functions, such as:
 
 __addNewQuote__ pushes a value of an instance of the object _quote_ into the array __quotes__
 
+
 `addNewQuote(quote){
   this.quotes.push(quote)
 }`
 
+
 __upVote__ loops through the index [i] in upVotes and adds one to the list.
+
 
 `upVote(i){
   this.quotes[i].upVotes += 1;
 }`
+
+
 __downVote__ works like upVote..
+
+
 
 `downVote(i){
   this.quotes[i].downVotes += 1;
 }`
 
+
 __returnVote__ does a simple subtraction to return the difference between up & down vote.
+
 
 `returnVote(i){
   return this.quotes[i].upVotes - this.quotes[i].downVotes;
 }`
+
+
 __deleteQuote__ first alerts you, on confirmation it runs a splice (remove) of quotes index 1...
+
 
 `deleteQuote(i){
     if (confirm("Are you sure you want to delete this quote? ")) {
         this.quotes.splice(i, 1);
     }
 }`
+
+--------------------------------------------------------------------------
+
 __getHighest__ is designed to __highlight__ the quote with most likes.
 It works as follows:
 - We assign values to previous
@@ -94,6 +109,8 @@ As _last_ now has the value of the __highest number of upVotes__ it will only ch
   return  this.pre
 }`
 
+-----------------------------------------------------------------------------
+
 
 ### QUOTE DETAILS
 Contains the stored details of the __form__.
@@ -112,17 +129,31 @@ The main outputs are three _interpolated_ object descriptions:
     Posted on: {{quote.initdate}}
   </p>`
 
-### QUOTE FormsModule
+### QUOTE FORMS
 The form captures all the data from the user.
+It is also __responsible for the creation of the FORMS OBJECT__ which is used in the other __components__.
 
-## Running unit tests
+Let us examine:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+__let us first__ define what type of data we expect from the forms:
+*Notice myQuote has data* __any__ *as it may contain a string of any type of input*
+`quoteAuthor:string
+quoteString:string
+quotePublisher:string
+myQuote:any
+`
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+__Next__, we create the structure of the object __Quote__ which contains `quoteString` , `quoteAuthor` and `quotePublisher` is __that exact order__ as this is specified in __quotes.ts__.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+`makeQuote(){
+  this.myQuote= new Quote(this.quoteString , this.quoteAuthor , this.quotePublisher)
+
+  this.quoteString=''
+  this.quoteAuthor=''
+  this.quotePublisher=''
+
+  this.addQuote.emit(this.myQuote)
+
+}`
